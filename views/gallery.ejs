@@ -1,0 +1,8 @@
+<h1>gallery</h1>
+
+<% paintings.forEach(function(painting){ %>
+	<div>
+		<h4><%= painting.name %></h4>
+		<img src="<%= painting.image %>">
+	</div>
+<% }); %>
