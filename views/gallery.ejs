@@ -1,4 +1,7 @@
+<%	include partials/header %>
+
 <h1>gallery</h1>
+<a href="/">Home</a>
 
 <% paintings.forEach(function(painting){ %>
 	<div>
@@ -6,3 +9,5 @@
 		<img src="<%= painting.image %>">
 	</div>
 <% }); %>
+
+<%	include partials/footer %>
