@@ -1,0 +1,13 @@
+<%	include partials/header %>
+
+<h1>Add a painting</h1>
+
+<form action="/gallery" method="POST">
+	<input type="text" name="name" placeholder="Name">
+	<input type="text" name="image" placeholder="Image">
+	<button>Submit</button>
+</form>
+
+<a href="/gallery">Back</a>
+
+<%	include partials/footer %>
