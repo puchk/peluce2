@@ -54,7 +54,9 @@ app.get('/gallery', function(req, res) {
 app.post('/gallery', function(req, res) {
 	var name = req.body.name;
 	var image = req.body.image;
-	var newPainting = {name: name, image: image};
+	var description = req.body.description;
+	var date = req.body.date;
+	var newPainting = {name: name, image: image, description: description, date: date};
 	Painting.create(newPainting, function(err, addedPainting){
 		if(err) {
 			console.log(err);
