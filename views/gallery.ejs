@@ -5,11 +5,10 @@
 <br>
 <a href="/gallery/new">Add another painting</a>
 
-<% paintings.forEach(function(painting){ %>
-	<div>
-		<h4><%= painting.name %></h4>
+<% paintings.forEach(function(painting){ %>		
+	<a href="/gallery/<%= painting._id %>">
 		<img src="<%= painting.image %>">
-	</div>
+	</a>
 <% }); %>
 
 <%	include partials/footer %>

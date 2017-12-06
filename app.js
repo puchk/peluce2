@@ -13,7 +13,9 @@ app.set('view engine', 'ejs');
 // SCHEMA
 var paintingSchema = new mongoose.Schema({
 	name: String,
-	image: String
+	image: String,
+	description: String,
+	date: Number
 });
 
 var Painting = mongoose.model("Painting", paintingSchema);
@@ -21,7 +23,9 @@ var Painting = mongoose.model("Painting", paintingSchema);
 /*Painting.create(
 		{
 			name: 'Starry Night', 
-			image: 'http://wisetoast.com/wp-content/uploads/2015/10/Starry-Night-by-Vincent-Van-Gogh-painting.jpg'		
+			image: 'http://wisetoast.com/wp-content/uploads/2015/10/Starry-Night-by-Vincent-Van-Gogh-painting.jpg',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, dolor totam, illo esse dolores veritatis. Inventore, repellendus tenetur quis, similique non sed nihil ab minus illo numquam sapiente, nostrum eius.',
+			date: 1889		
 		}, function(err, painting){
 			if(err){
 				console.log(err);
@@ -57,12 +61,22 @@ app.post('/gallery', function(req, res) {
 		} else {
 				res.redirect("/gallery");
 		}
-	})
-})
+	});
+});
 
 app.get('/gallery/new', function(req, res) {
 	res.render('new');
-})
+});
+
+app.get('/gallery/:id', function(req, res) {
+	Painting.findById(req.params.id, function(err, foundPainting){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("show", {painting: foundPainting});
+		}
+	});
+});
 
 app.listen(port, function(err) {
 	console.log('Listening on port ' + port);
