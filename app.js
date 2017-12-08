@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var Painting = require('./models/painting');
+var seeds = require('./seeds');
 
 var app = express();
 var port = process.env.PORT || 8080;
@@ -10,16 +12,8 @@ mongoose.connect('mongodb://localhost/peluce');
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-// SCHEMA
-var paintingSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	description: String,
-	date: Number
-});
 
-var Painting = mongoose.model("Painting", paintingSchema);
-
+seeds();
 /*Painting.create(
 		{
 			name: 'Starry Night', 
