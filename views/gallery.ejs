@@ -6,8 +6,8 @@
 <a href="/gallery/new">Add another painting</a>
 
 <% paintings.forEach(function(painting){ %>		
-	<a href="/gallery/<%= painting._id %>">
-		<img src="<%= painting.image %>" class="painting">
+	<a href="/gallery/<%= painting._id %>" title="<%= painting.name %>">
+		<img src="<%= painting.image %>" class="painting" alt="<%= painting.name %>">
 	</a>
 <% }); %>
 
