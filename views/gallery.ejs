@@ -1,14 +1,19 @@
 <%	include partials/header %>
 
-<h1>gallery</h1>
-<a href="/">Home</a>
-<br>
-<a href="/gallery/new">Add another painting</a>
-
-<% paintings.forEach(function(painting){ %>		
-	<a href="/gallery/<%= painting._id %>" title="<%= painting.name %>">
-		<img src="<%= painting.image %>" class="painting" alt="<%= painting.name %>">
-	</a>
-<% }); %>
+<div class="container">
+	<h1>gallery</h1>
+	<div>
+		<a href="/">Home</a>
+		<br>
+		<a href="/gallery/new">Add another painting</a>
+	</div>
+	<div>
+		<% paintings.forEach(function(painting){ %>		
+			<a href="/gallery/<%= painting._id %>" title="<%= painting.name %>">
+				<img src="<%= painting.image %>" class="painting" alt="<%= painting.name %>">
+			</a>
+		<% }); %>
+	</div>
+</div>
 
 <%	include partials/footer %>

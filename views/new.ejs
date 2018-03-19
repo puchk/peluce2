@@ -1,15 +1,27 @@
 <%	include partials/header %>
 
-<h1>Add a painting</h1>
+<div class="container">
+	<h1>Add a painting</h1>
 
-<form action="/gallery" method="POST">
-	<input type="text" name="name" placeholder="Name">
-	<input type="text" name="image" placeholder="Image">
-	<input type="text" name="description" placeholder="Description">
-	<input type="text" name="date" placeholder="Date">
-	<button>Submit</button>
-</form>
+	<form action="/gallery" method="POST">
+		<div class="form-group">
+			<input class="form-control" type="text" name="name" placeholder="Name">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="image" placeholder="Image">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="description" placeholder="Description">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="date" placeholder="Date">
+		</div>
+		<div class="form-group">
+			<button>Submit</button>
+		</div>
+	</form>
 
-<a href="/gallery">Back</a>
+	<a href="/gallery">Back</a>
+</div>
 
 <%	include partials/footer %>
